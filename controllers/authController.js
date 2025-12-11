@@ -31,7 +31,7 @@ exports.signup = async (req, res) => {
       email,
       password: hashedPassword,
       profile: {}, 
-      preferences: { interactionHistory: [], tagScores: {} }
+      preferences: {}
     });
 
     if (user) {
