@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules
+
+# Logs
+npm-debug.log*
+.log
+
+# Environment variables (Crucial for security!)
+.env
+
+# PM2 process file
+ecosystem.config.cjs
