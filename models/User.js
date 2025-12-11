@@ -13,7 +13,10 @@ const UserSchema = new mongoose.Schema({
   },
 
   // 2. The Physical Profile
-  profile: {
+profile: {
+    type: Object, // Ensure Mongoose knows this is an object field
+    default: {}, // <--- CRITICAL FIX: Ensures validation passes if {} is passed during signup
+    // These nested fields are now optional, as the default above satisfies Mongoose
     age: { type: Number },
     gender: { type: String, enum: ['male', 'female'] },
     height: { type: Number },
@@ -23,10 +26,12 @@ const UserSchema = new mongoose.Schema({
     diet: { type: String, enum: ['veg', 'vegan', 'non-veg'] },
     allergies: [String],
     dislikes: [String]
-  },
+},
 
-  // 3. The AI Memory Bank 🧠
-  preferences: {
+ // 3. The AI Memory Bank 🧠
+preferences: {
+    type: Object, // <--- ADD THIS LINE
+    default: {}, // <--- ADD THIS CRITICAL FIX
     interactionHistory: [{
       foodId: String,
       // --- FIX IS HERE: Added 'disliked' to the list ---
@@ -36,9 +41,9 @@ const UserSchema = new mongoose.Schema({
     tagScores: {
       type: Map,
       of: Number,
-      default: {}
+     default: {}
     }
-  },
+},
 
   // 4. Reset Password Fields
   resetPasswordOtp: String,
