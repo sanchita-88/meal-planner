@@ -44,9 +44,10 @@ exports.signup = async (req, res) => {
       res.status(400).json({ error: 'Invalid user data' });
     }
   } catch (err) {
-    console.error(err);
+    console.error("SIGNUP ERROR TRACE:", err);
+    console.error("FULL STRING ERROR:", JSON.stringify(err, Object.getOwnPropertyNames(err))); // <--- ADD THIS DEBUG LINE
     res.status(500).json({ error: 'Server error' });
-  }
+ }
 };
 
 // @desc    Authenticate user & get token
