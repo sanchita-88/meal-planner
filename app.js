@@ -1,9 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('../config/db'); // Import DB connection logic
-const mealRoutes = require('../routes/mealRoutes');
-const authRoutes = require('../routes/authRoutes'); // Import Auth routes
-const userRoutes = require('../routes/userRoutes');
+const connectDB = require('./config/db'); // Import DB connection logic
+const mealRoutes = require('./routes/mealRoutes');
+const authRoutes = require('./routes/authRoutes'); // Import Auth routes
+const userRoutes = require('./routes/userRoutes');
 const cors = require('cors'); // <--- 1. Import CORS
 
 // 1. Load Environment Variables (Must come before connecting to DB)
